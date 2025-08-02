@@ -11,19 +11,43 @@ if (menuIcon && menu) {
   });
 }
 
-// menu text
-const menuItems = document.querySelectorAll(".header ul li");
-if (menuItems && menuItems.length > 0) {
-  menuItems.forEach((item) => {
-    item.addEventListener("click", function () {
-      let span = this.querySelector(".menuText");
-      if (span) {
-        span.classList.remove("menuText");
-        span.classList.add("clicked-span");
+
+// Set .active class on menuText for current page and on click
+window.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.header ul li a');
+  // Helper to update active state
+  function setActiveMenuByUrl() {
+    navLinks.forEach(link => {
+      const span = link.querySelector('.menuText, .active');
+      if (span) span.classList.remove('active');
+      const linkHref = link.getAttribute('href');
+      if (linkHref && window.location.pathname.endsWith(linkHref)) {
+        if (span) span.classList.add('active');
       }
     });
+  }
+
+  // On page load, set active by URL
+  setActiveMenuByUrl();
+
+  // On click, show text for clicked icon and keep it until navigation
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Only handle if not navigating away (e.g. # or preventDefault)
+      const href = link.getAttribute('href');
+      if (href === '#' || href === '' || href === window.location.pathname) {
+        e.preventDefault();
+        navLinks.forEach(l => {
+          const s = l.querySelector('.menuText, .active');
+          if (s) s.classList.remove('active');
+        });
+        const span = link.querySelector('.menuText');
+        if (span) span.classList.add('active');
+      }
+      // If navigating to another page, let navigation happen and .active will be set by URL on load
+    });
   });
-}
+});
 
 // campus slider
 const slides = [
@@ -118,3 +142,70 @@ if (statusText && statusInput && updateStatusBtn) {
     }
   });
 }
+
+
+// courses page
+
+
+ // Initial courses array
+    let courses = [
+      { name: 'Mathematics', grade: '10', details: 'Algebra, Geometry, Trigonometry' },
+      { name: 'Biology', grade: '11', details: 'Genetics, Evolution, Ecology' },
+      { name: 'Chemistry', grade: '10', details: 'Atoms, Molecules, Reactions' },
+      { name: 'Physics', grade: '11', details: 'Mechanics, Waves, Electricity' },
+    ];
+    let currentFilter = 'all';
+    const coursesList = document.getElementById('coursesList');
+    const courseDetails = document.getElementById('courseDetails');
+    const addCourseForm = document.getElementById('addCourseForm');
+    const courseNameInput = document.getElementById('courseNameInput');
+    const courseGradeInput = document.getElementById('courseGradeInput');
+    // Render courses
+    function renderCourses() {
+      coursesList.innerHTML = '';
+      let filtered = courses.filter(c => currentFilter === 'all' || c.grade === currentFilter);
+      if (filtered.length === 0) {
+        coursesList.innerHTML = '<li style="color:#888;">No courses found.</li>';
+        return;
+      }
+      filtered.forEach((course, idx) => {
+        let li = document.createElement('li');
+        li.style.cssText = 'background:#f8da99; margin-bottom:12px; border-radius:10px; padding:16px 18px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 8px rgba(229,170,44,0.08);';
+        li.innerHTML = `
+          <span><strong>${course.name}</strong> <span style="color:#0c3371; font-size:0.95em;">(Grade ${course.grade})</span></span>
+          <button class="show-details-btn" data-idx="${idx}" data-grade="${course.grade}" style="background:#0c3371; color:#fff; border:none; border-radius:8px; padding:7px 14px; font-size:1em; font-weight:500; cursor:pointer;">Show Course Details</button>
+        `;
+        coursesList.appendChild(li);
+      });
+    }
+    renderCourses();
+    // Show details
+    coursesList.addEventListener('click', function(e) {
+      if (e.target.classList.contains('show-details-btn')) {
+        const idx = e.target.dataset.idx;
+        courseDetails.textContent = courses[idx].details;
+      }
+    });
+    // Add course
+    addCourseForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = courseNameInput.value.trim();
+      const grade = courseGradeInput.value;
+      if (!name || !grade) {
+        alert('Please enter a course name and select a grade.');
+        return;
+      }
+      courses.push({ name, grade, details: 'No details yet.' });
+      courseNameInput.value = '';
+      courseGradeInput.value = '';
+      renderCourses();
+      courseDetails.textContent = '';
+    });
+    // Filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        currentFilter = this.dataset.grade;
+        renderCourses();
+        courseDetails.textContent = '';
+      });
+    });

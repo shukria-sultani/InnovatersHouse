@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Profile</title>
+  <title>Courses</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
- 
 <div class="header">
   <div class="small-header">
     <img src="/images/logo.png" alt="InnovatersHouse logo" class="logo" width="100px" height="100px" />
@@ -19,7 +18,8 @@
     </svg>
   </div>
   <ul>
-    <li><a href="index.html"><img src="/images/home.png" width="30px" height="30px" style="background-color: transparent;" alt=""><span class="menuText active">Home</span></a></li>
+        <li><a href="index.html"><img src="/images/home.png" width="30px" height="30px" style="background-color: transparent;" alt=""><span class="menuText active">Home</span></a></li>
+
     <li><a href="profile.html"><img src="/images/profile.png " width="40px" height="40px" style="background-color: transparent;"
           alt=""><span style="background-color: transparent;" class="menuText">Student Profile</span> </a></li>
     <li><a href="courses.html"><img src="/images/courses.png" alt="" width="40px" height="40px"
@@ -29,36 +29,27 @@
           style="background-color: transparent;"><span style="background-color: transparent;"
           class="menuText">Contact</span> </a></li>
   </ul>
-</div>>
-  <div class="profile-container">
-    <div class="profile-header">
-      <img src="/images/profile.png" alt="Student Photo" class="profile-photo" width="120" height="120">
-      <div class="profile-info">
-        <h2 id="studentName">Amina Ahmadi</h2>
-        <p>Age: <span id="studentAge">16</span></p>
-        <p>Grade: <span id="studentGrade">11</span></p>
-      </div>
+</div>
+  <div class="courses-container" style="max-width: 600px; margin: 40px auto; background: #fff; border-radius: 18px; box-shadow: 0 4px 32px rgba(12,51,113,0.10); padding: 32px 18px;">
+    <h2 style="text-align:center; color:#0c3371;">Courses</h2>
+    <div style="display:flex; gap:12px; justify-content:center; margin-bottom:18px;">
+      <button class="filter-btn" data-grade="all">All</button>
+      <button class="filter-btn" data-grade="10">Grade 10</button>
+      <button class="filter-btn" data-grade="11">Grade 11</button>
     </div>
-    <div class="profile-status">
-      <span>Status: </span><span id="statusText">Active</span>
-    </div>
-    <div class="status-update">
-      <input type="text" id="statusInput" placeholder="Enter new status...">
-      <button id="updateStatusBtn">Update Status</button>
-    </div>
-    <div class="contact-section">
-      <div class="contact-buttons">
-        <button id="showEmailBtn">Show Email</button>
-        <button id="showPhoneBtn">Show Phone</button>
-        <button id="hideContactBtn">Hide Contact Info</button>
-      </div>
-      <div id="contactInfo" class="contact-info"></div>
-    </div>
+    <ul id="coursesList" class="courses-list" style="list-style:none; padding:0; margin:0 0 24px 0;"></ul>
+    <form id="addCourseForm" style="display:flex; gap:8px; justify-content:center; margin-top:18px;">
+      <input type="text" id="courseNameInput" placeholder="Course Name" style="flex:2; padding:7px 10px; border-radius:8px; border:1.5px solid #e5aa2c;">
+      <select id="courseGradeInput" style="flex:1; padding:7px 10px; border-radius:8px; border:1.5px solid #e5aa2c;">
+        <option value="">Grade</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+      </select>
+      <button type="submit" style="background:#e5aa2c; color:#0c3371; border:none; border-radius:8px; padding:7px 16px; font-weight:600; cursor:pointer;">Add Course</button>
+    </form>
+    <div id="courseDetails" style="margin-top:24px; text-align:center; color:#0c3371; font-size:1.1em;"></div>
   </div>
 
-<script src="script.js"></script>
-  </body>
-  </html>
-   
-
-   
+  <script src="script.js"></script>
+</body>
+</html>
