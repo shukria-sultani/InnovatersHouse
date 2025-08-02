@@ -1,30 +1,31 @@
 // responsive header
-
-let menuIcon = document.getElementById("menuIcon");
-let menu = document.querySelector(".header ul");
-menuIcon.addEventListener("click", function () {
-  if (menu.style.display === "flex") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "flex";
-  }
-});
-
-// menu text
-
-let menuItems = document.querySelectorAll(".header ul li");
-menuItems.forEach((item) => {
-  item.addEventListener("click", function () {
-    let span = this.querySelector(".menuText");
-    if (span) {
-      span.classList.remove("menuText");
-      span.classList.add("clicked-span");
+const menuIcon = document.getElementById("menuIcon");
+const menu = document.querySelector(".header ul");
+if (menuIcon && menu) {
+  menuIcon.addEventListener("click", function () {
+    if (menu.style.display === "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
     }
   });
-});
+}
+
+// menu text
+const menuItems = document.querySelectorAll(".header ul li");
+if (menuItems && menuItems.length > 0) {
+  menuItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      let span = this.querySelector(".menuText");
+      if (span) {
+        span.classList.remove("menuText");
+        span.classList.add("clicked-span");
+      }
+    });
+  });
+}
 
 // campus slider
-
 const slides = [
   {
     slideNo: 1,
@@ -65,24 +66,55 @@ const slides = [
 
 let currentSlide = 0;
 const slideContainer = document.querySelector(".slide");
-
-function showSlide(index) {
-  if (!slideContainer) return;
-  slideContainer.classList.remove("fade-in");
-  setTimeout(() => {
-    slideContainer.innerHTML = `
-      <h2>${slides[index].headline}</h2>
-      <p style="color: white;">${slides[index].description}</p>
-    `;
-    slideContainer.style.backgroundImage = `url('${slides[index].bgImage}')`;
-    slideContainer.classList.add("fade-in");
-  }, 200);
+if (slideContainer) {
+  function showSlide(index) {
+    slideContainer.classList.remove("fade-in");
+    setTimeout(() => {
+      slideContainer.innerHTML = `
+        <h2>${slides[index].headline}</h2>
+        <p style="color: white;">${slides[index].description}</p>
+      `;
+      slideContainer.style.backgroundImage = `url('${slides[index].bgImage}')`;
+      slideContainer.classList.add("fade-in");
+    }, 200);
+  }
+  showSlide(currentSlide);
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 4000);
 }
 
-showSlide(currentSlide);
-
-setInterval(() => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}, 4000);
-
+// profile page
+const showEmailBtn = document.getElementById('showEmailBtn');
+const showPhoneBtn = document.getElementById('showPhoneBtn');
+const hideContactBtn = document.getElementById('hideContactBtn');
+const contactInfo = document.getElementById('contactInfo');
+if (showEmailBtn && showPhoneBtn && hideContactBtn && contactInfo) {
+  showEmailBtn.addEventListener('click', function() {
+    contactInfo.textContent = 'Email: amina.ahmadi@gmail.com';
+  });
+  showPhoneBtn.addEventListener('click', function() {
+    contactInfo.textContent = 'Phone: +93 78567890';
+  });
+  hideContactBtn.addEventListener('click', function() {
+    contactInfo.textContent = '';
+  });
+}
+// Status Update
+const statusText = document.getElementById('statusText');
+const statusInput = document.getElementById('statusInput');
+const updateStatusBtn = document.getElementById('updateStatusBtn');
+if (statusText && statusInput && updateStatusBtn) {
+  updateStatusBtn.addEventListener('click', function() {
+    if (statusInput.value.trim() == '') 
+    {
+       alert("Please enter the status!")
+    }
+      
+      else{
+      statusText.innerHTML = statusInput.value;
+      statusInput.value = '';
+    }
+  });
+}
