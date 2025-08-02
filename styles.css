@@ -275,7 +275,7 @@ button {
    background-size: cover;
    background-position: center;
    border-radius: 20px;
-     background-image: url(/images/library.png);
+     background-image: url(images/library.png);
 }
 .campus-container .slide::before {
   content: ""; /* Required for pseudo-elements */
