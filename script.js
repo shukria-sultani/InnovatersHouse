@@ -1,3 +1,9 @@
+const greeting = ()=>{
+    let username = document.getElementById("username");
+    username.textContent = "Amina 👋"
+}
+greeting();
+
 // responsive header
 const menuIcon = document.getElementById("menuIcon");
 const menu = document.querySelector(".header ul");
