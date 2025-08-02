@@ -21,7 +21,6 @@ if (menuIcon && menu) {
 // Set .active class on menuText for current page and on click
 window.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelectorAll('.header ul li a');
-  // Helper to update active state
   function setActiveMenuByUrl() {
     navLinks.forEach(link => {
       const span = link.querySelector('.menuText, .active');
@@ -36,7 +35,6 @@ window.addEventListener('DOMContentLoaded', function() {
   // On page load, set active by URL
   setActiveMenuByUrl();
 
-  // On click, show text for clicked icon and keep it until navigation
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       const href = link.getAttribute('href');
@@ -60,35 +58,35 @@ const slides = [
     headline: "The Learning Hub",
     description:
       "Dive deep into knowledge within our state-of-the-art library, designed for quiet study and collaborative discovery.",
-    bgImage: "/images/library.png",
+    bgImage: "images/library.png",
   },
   {
     slideNo: 2,
     headline: "Cutting-Edge Tech Spaces",
     description:
       "Unleash your digital potential in our high-tech computer labs, equipped for coding, design, and innovation.",
-    bgImage: "/images/computerlb.png",
+    bgImage: "images/computerlb.png",
   },
   {
     slideNo: 3,
     headline: "Discover Through Experimentation",
     description:
       "Conduct groundbreaking experiments in our advanced science laboratories, fostering hands-on learning and critical thinking.",
-    bgImage: "/images/science.png",
+    bgImage: "images/science.png",
   },
   {
     slideNo: 4,
     headline: "Energize & Connect",
     description:
       "Recharge and build friendships in our vibrant campus playground and recreational areas, where fun meets community.",
-    bgImage: "/images/coffeshop.png",
+    bgImage: "images/coffeshop.png",
   },
   {
     slideNo: 5,
     headline: "Your Campus Community Hub",
     description:
       "Relax, collaborate, and connect with peers in our cozy campus coffee shop and student lounge, the heart of student life.",
-    bgImage: "/images/plyground.png",
+    bgImage: "images/plyground.png",
   },
 ];
 
