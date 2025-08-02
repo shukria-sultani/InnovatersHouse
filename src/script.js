@@ -33,7 +33,6 @@ window.addEventListener('DOMContentLoaded', function() {
   // On click, show text for clicked icon and keep it until navigation
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
-      // Only handle if not navigating away (e.g. # or preventDefault)
       const href = link.getAttribute('href');
       if (href === '#' || href === '' || href === window.location.pathname) {
         e.preventDefault();
@@ -44,7 +43,6 @@ window.addEventListener('DOMContentLoaded', function() {
         const span = link.querySelector('.menuText');
         if (span) span.classList.add('active');
       }
-      // If navigating to another page, let navigation happen and .active will be set by URL on load
     });
   });
 });
@@ -208,4 +206,18 @@ if (statusText && statusInput && updateStatusBtn) {
         renderCourses();
         courseDetails.textContent = '';
       });
+    });
+
+    // contact 
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      alert('Thank you for contacting us, ' + name + '! Your message has been sent.');
+      this.reset();
     });
