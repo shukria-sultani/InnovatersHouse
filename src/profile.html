@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/images/logo.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InnovatersHouse</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-    rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
+<body>
+ 
 <div class="header">
   <div class="small-header">
     <img src="images/logo.png" alt="InnovatersHouse logo" class="logo" width="100px" height="100px" />
@@ -35,79 +29,36 @@
           style="background-color: transparent;"><span style="background-color: transparent;"
           class="menuText">Contact</span> </a></li>
   </ul>
-</div>
-
-<section class="hero-section">
-  <div class="hero">
-    <h2>InnovatersHouse: Empovering the Next Generation <br>
-      <strong style="background-color: transparent;"> Learn, Innovate, Lead!</strong>
-    </h2>
-    <p>Welcome to InnovatersHouse username! 👋</p>
-    <button> <a href="courses.html" style="text-decoration: none; color: #0c3371;">Explore Courses </a></button>
-  </div>
-</section>
-<section class="value-props-section">
-  <h2>Why Choose InnovatersHouse?</h2>
-  <div class="value-props">
-    <div class="prop-item">
-      <img src="images/lightbulb 3.PNG" alt="Innovation Icon" class="prop-icon" width="80px" height="80px">
-      <h3>Dedicated to Innovation</h3>
-      <p>Fostering critical thinking and creative <br> problem-solving skills in every student.</p>
-    </div>
-
-    <div class="prop-item">
-      <img src="images/hat.svg" alt="Faculty Icon" class="prop-icon" width="80px" height="80px">
-      <h3>Expert Faculty</h3>
-      <p>Learn from passionate educators and<br> industry  leaders committed to your success.</p>
-    </div>
-
-    <div class="prop-item">
-      <img src="images/community.png" alt="Community Icon" class="prop-icon" width="80px" height="80px">
-      <h3>Vibrant Community</h3>
-      <p>Collaborate, grow, and thrive in a supportive <br> and  inclusive learning environment.</p>
-    </div>
-
-  </div>
-</section>
-
-
-<section class="campus">
-    <h2 style="text-align: center;">Explore Our Campus</h2>
-
-    <div class="campus-container">
-   
-      <div class="slide">
-         <h2>Cutting-Edge Tech Spaces</h2>
-         <p style="color: white;">Unleash your digital potential in our high-tech computer labs, <br> equipped for coding, design, and innovation.</p>
+</div>>
+  <div class="profile-container">
+    <div class="profile-header">
+      <img src="images/profile.png" alt="Student Photo" class="profile-photo" width="120" height="120">
+      <div class="profile-info">
+        <h2 id="studentName">Amina Ahmadi</h2>
+        <p>Age: <span id="studentAge">16</span></p>
+        <p>Grade: <span id="studentGrade">11</span></p>
       </div>
-           
-
     </div>
-   
-</section>
-
- <footer>
-   <div class="footer-content">
-     <div class="logo">
-       <img src="images/logo.png" alt="InnovatersHouse logo" width="100px" height="100px">
-       <p style="background-color: transparent;"><strong style="background-color: transparent;">Learn, Innovate, Lead</strong></p>
-     </div>
-     <div class="links" >
-       <ul>
-         <li><a href="index.html">Home</a></li>
-         <li><a href="courses.html">Courses</a></li>
-         <li><a href="profile.html">Your Profile</a></li>
-         <li><a href="contact.html">Contact Us</a></li>
-       </ul>
-     </div>
-     <div class="copyright">
-       <p>&copy; 2023 InnovatersHouse. All rights reserved.</p>
-     </div>
-   </div>
- </footer>
-
+    <div class="profile-status">
+      <span>Status: </span><span id="statusText">Active</span>
+    </div>
+    <div class="status-update">
+      <input type="text" id="statusInput" placeholder="Enter new status...">
+      <button id="updateStatusBtn">Update Status</button>
+    </div>
+    <div class="contact-section">
+      <div class="contact-buttons">
+        <button id="showEmailBtn">Show Email</button>
+        <button id="showPhoneBtn">Show Phone</button>
+        <button id="hideContactBtn">Hide Contact Info</button>
+      </div>
+      <div id="contactInfo" class="contact-info"></div>
+    </div>
+  </div>
 
 <script src="script.js"></script>
-</body>
+  </body>
+  </html>
+   
 
-</html>
+   
