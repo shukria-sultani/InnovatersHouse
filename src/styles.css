@@ -1,3 +1,16 @@
+.fade-in {
+  animation: fadeInSlide 0.7s cubic-bezier(.25,.8,.25,1);
+}
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
 * {
   padding: 0;
@@ -188,10 +201,6 @@ button {
     font-size: xx-large;
   }
 
-  .hero button {
-    font-size: medium;
-    padding: 10px 20px;
-  }
 }
 .value-props-section h2{
     text-align: center;
@@ -249,4 +258,61 @@ button {
 .value-props .prop-item:hover p {
   opacity: 1;
   max-height: 400px;
+}
+
+.campus{
+  margin-top: 100px;
+}
+.campus-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  gap: 10px;
+}
+
+.campus-container .slide{
+  position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 400px;
+   padding: 70px;
+   max-width: 600px;
+   flex-direction: column;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   border-radius: 20px;
+     background-image: url(/images/library.png);
+}
+.campus-container .slide::before {
+  content: ""; /* Required for pseudo-elements */
+  position: absolute; /* Positions it over the hero section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  border-radius: 20px;
+  background:linear-gradient(
+    to bottom,
+    rgba(199, 203, 244, 0.3), 
+    rgba(9, 70, 168, 0.8)  
+  );
+  z-index: 1;
+}
+
+.campus-container .slide p{
+  padding-top: 10px;
+  font-size: large;
+  text-align: center;
+
+}
+.campus-container .slide h2{
+  background-color: transparent;
+  color: #fff;
+  text-shadow:
+    0 4px 16px rgba(0,0,0,0.7),
+    0 1px 5px #e5aa2c,
+    0 0 20px #e5aa2c;
 }
