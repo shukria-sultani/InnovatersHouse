@@ -1,6 +1,9 @@
 const greeting = ()=>{
     let username = document.getElementById("username");
-    username.textContent = "Amina 👋"
+    if(username){
+         username.textContent = "Amina 👋"
+    }
+ 
 }
 greeting();
 
