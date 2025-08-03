@@ -56,6 +56,13 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // campus slider
 const slides = [
+    {
+    slideNo: 2,
+    headline: "Cutting-Edge Tech Spaces",
+    description:
+      "Unleash your digital potential in our high-tech computer labs, equipped for coding, design, and innovation.",
+    bgImage: "images/computerlb.png",
+  },
   {
     slideNo: 1,
     headline: "The Learning Hub",
@@ -63,13 +70,7 @@ const slides = [
       "Dive deep into knowledge within our state-of-the-art library, designed for quiet study and collaborative discovery.",
     bgImage: "images/library.png",
   },
-  {
-    slideNo: 2,
-    headline: "Cutting-Edge Tech Spaces",
-    description:
-      "Unleash your digital potential in our high-tech computer labs, equipped for coding, design, and innovation.",
-    bgImage: "images/computerlb.png",
-  },
+
   {
     slideNo: 3,
     headline: "Discover Through Experimentation",
