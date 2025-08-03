@@ -275,11 +275,11 @@ button {
    background-size: cover;
    background-position: center;
    border-radius: 20px;
-     background-image: url(images/library.png);
+     /* background-image: url(images/library.png); */
 }
 .campus-container .slide::before {
-  content: ""; /* Required for pseudo-elements */
-  position: absolute; /* Positions it over the hero section */
+  content: ""; 
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
