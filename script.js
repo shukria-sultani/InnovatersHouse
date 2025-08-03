@@ -56,13 +56,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // campus slider
 const slides = [
-    {
-    slideNo: 2,
-    headline: "Cutting-Edge Tech Spaces",
-    description:
-      "Unleash your digital potential in our high-tech computer labs, equipped for coding, design, and innovation.",
-    bgImage: "images/computerlb.png",
-  },
   {
     slideNo: 1,
     headline: "The Learning Hub",
@@ -70,27 +63,33 @@ const slides = [
       "Dive deep into knowledge within our state-of-the-art library, designed for quiet study and collaborative discovery.",
     bgImage: "images/library.png",
   },
-
+  {
+    slideNo: 2,
+    headline: "Cutting-Edge Tech Spaces",
+    description:
+      "Unleash your digital potential in our high-tech computer labs, equipped for coding, design, and innovation.",
+    bgImage: "images/computerlb.PNG",
+  },
   {
     slideNo: 3,
     headline: "Discover Through Experimentation",
     description:
       "Conduct groundbreaking experiments in our advanced science laboratories, fostering hands-on learning and critical thinking.",
-    bgImage: "images/science.png",
+    bgImage: "images/science.PNG",
   },
   {
     slideNo: 4,
     headline: "Energize & Connect",
     description:
       "Recharge and build friendships in our vibrant campus playground and recreational areas, where fun meets community.",
-    bgImage: "images/coffeshop.png",
+    bgImage: "images/coffeshop.PNG",
   },
   {
     slideNo: 5,
     headline: "Your Campus Community Hub",
     description:
       "Relax, collaborate, and connect with peers in our cozy campus coffee shop and student lounge, the heart of student life.",
-    bgImage: "images/plyground.png",
+    bgImage: "images/plyground.PNG",
   },
 ];
 
